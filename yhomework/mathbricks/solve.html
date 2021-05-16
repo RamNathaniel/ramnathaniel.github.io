@@ -1,0 +1,147 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+  <title>MathBricks</title>
+  <style>
+	.p { fgcolor: black; font-family: "Short stack"; font-size: 15px; -webkit-text-size-adjust: none; }
+	A { color: #0D0D0D; }
+	td { padding: 5px; font-family: "Short stack"; font-size: 15px; -webkit-text-size-adjust: none; line-height: 150%;}
+  </style>
+  
+	<link rel="shortcut icon" href="http://mathbricks.com/favicon.ico" />
+	<link href='http://fonts.googleapis.com/css?family=Short+Stack' rel='stylesheet' type='text/css'>
+
+	<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>		 
+	
+	<script type="text/javascript">
+		function getURLParameter(name) {
+			var val = decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||null
+			return val;
+		}
+		
+		function redirectToAppLink() {
+			beep();
+			var id = getURLParameter('id');
+			console.log("id="+id);
+			
+			// try refering to the app			
+			var url = 'mathbricks://solve_this?id='+id;
+			console.log("trying url="+url);
+			window.location = url;
+			
+			// 1 second gone by and the app didn't take it - redirect to the landing page.
+			// setTimeout('window.location="http://mathbricks.com?action=link&id='+id+'";', 1000);
+		}
+	
+		function beep() {
+			var snd = new Audio("data:audio/wav;base64,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qJrx4KOQjahZxWbcZgztj2c49nKmkId44S71j0c8eV9yDK6uPRzx5X18eDvjvQ6yKo9ZSS6l//8elePK/Lf//IInrOF/FvDoADYAGBMGb7FtErm5MXMlmPAJQVgWta7Zx2go+8xJ0UiCb8LHHdftWyLJE0QIAIsI+UbXu67dZMjmgDGCGl1H+vpF4NSDckSIkk7Vd+sxEhBQMRU8j/12UIRhzSaUdQ+rQU5kGeFxm+hb1oh6pWWmv3uvmReDl0UnvtapVaIzo1jZbf/pD6ElLqSX+rUmOQNpJFa/r+sa4e/pBlAABoAAAAA3CUgShLdGIxsY7AUABPRrgCABdDuQ5GC7DqPQCgbbJUAoRSUj+NIEig0YfyWUho1VBBBA//uQZB4ABZx5zfMakeAAAAmwAAAAF5F3P0w9GtAAACfAAAAAwLhMDmAYWMgVEG1U0FIGCBgXBXAtfMH10000EEEEEECUBYln03TTTdNBDZopopYvrTTdNa325mImNg3TTPV9q3pmY0xoO6bv3r00y+IDGid/9aaaZTGMuj9mpu9Mpio1dXrr5HERTZSmqU36A3CumzN/9Robv/Xx4v9ijkSRSNLQhAWumap82WRSBUqXStV/YcS+XVLnSS+WLDroqArFkMEsAS+eWmrUzrO0oEmE40RlMZ5+ODIkAyKAGUwZ3mVKmcamcJnMW26MRPgUw6j+LkhyHGVGYjSUUKNpuJUQoOIAyDvEyG8S5yfK6dhZc0Tx1KI/gviKL6qvvFs1+bWtaz58uUNnryq6kt5RzOCkPWlVqVX2a/EEBUdU1KrXLf40GoiiFXK///qpoiDXrOgqDR38JB0bw7SoL+ZB9o1RCkQjQ2CBYZKd/+VJxZRRZlqSkKiws0WFxUyCwsKiMy7hUVFhIaCrNQsKkTIsLivwKKigsj8XYlwt/WKi2N4d//uQRCSAAjURNIHpMZBGYiaQPSYyAAABLAAAAAAAACWAAAAApUF/Mg+0aohSIRobBAsMlO//Kk4soosy1JSFRYWaLC4qZBYWFRGZdwqKiwkNBVmoWFSJkWFxX4FFRQWR+LsS4W/rFRb/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////VEFHAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAU291bmRib3kuZGUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMjAwNGh0dHA6Ly93d3cuc291bmRib3kuZGUAAAAAAAAAACU=");  
+			snd.play();
+		}	
+	
+		$(window).load(function() {
+			var useragent = navigator.userAgent.toLowerCase();
+			
+			if( useragent.match(/android/i) ) {
+				redirectToAppLink();
+				// window.location = "https://play.google.com/store/apps/details?id=com.MathUnderground.MathSolver"; // android				
+			}
+			else if( useragent.match(/iphone/i) ) {
+				redirectToAppLink();
+				// window.location = "https://itunes.apple.com/us/app/yhomework-math-solver/id604715759?mt=8&uo=4"; // iphone				
+			}
+			else if( useragent.match(/ipod/i) ) {
+				redirectToAppLink();
+				// window.location = "https://itunes.apple.com/us/app/yhomework-math-solver/id604715759?mt=8&uo=4"; // ipod
+			}
+			else if( useragent.match(/ipad/i) ) {
+				redirectToAppLink();
+				// window.location = "https://itunes.apple.com/us/app/yhomework-math-solver/id604715759?mt=8&uo=4"; // ipad
+			}
+			else {
+				// default website
+				// window.location = "http://mathbricks.com";
+			}
+		});
+	</script>		 
+</head>
+
+<body width="100%" height="100%" style="text-align: center; 
+background-color: white; color: black; font-family: 'Short Stack', cursive; 
+background-position: center center;" >
+
+<br height="30pt" />
+
+<div align="center" width="100%" style="font-family: 'Short Stack' cursive; font-size: 25px; color: red;">
+	<strong>Redirecting...</strong>
+</div>
+
+<div align="center" width="100%" style="font-family: 'Short Stack' cursive; font-size: 25px; color: #267F00;">
+	<strong>Install MathBricks on your tablet or smartphone to solve this question!</strong>
+</div>
+
+<div align="center">
+	<table align="center" width="80%" style="cell-spacing: 10px;">
+		<tr>
+		<td valign="middle" align="center">
+			<img src="SplashScreen2.jpg" width="50%" />
+		</td>
+		</tr>
+		<tr>
+		<td width="100%">
+			<table width="100%">
+				<tr>
+					<td valign="middle" align="center">
+						<table widht="100%" valign="middle" align="center">
+						<tr>
+						<td valign="middle" style="text-align: center; width: 100%; font-family: 'Short Stack'">
+							
+							<font size=+2>
+							Solve your homework; Build your skills!
+							</font>
+						</td>
+						</tr>
+						<tr height="10pt">
+						</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+		</td>
+		</tr>
+	</table>
+</div>
+
+<!-- <table border=0 style="margin: 20 20 20 20; position: fixed; bottom: 10px;" width="100%"> -->
+<table border=0 style="margin: 20 20 20 20;" width="100%">
+<tr>
+<td style="text-align: center; padding: 10;">
+	<!--
+	<a href="https://itunes.apple.com/us/app/mathbricks/id846489399?ls=1&mt=8" >	
+		<img src="Available_on_the_App_Store_Badge_US-UK_135x40.png" onclick="comingSoonMsgBox()" />
+	</a>
+	-->
+	<img src="Available_on_the_App_Store_Badge_US-UK_135x40.png" onclick="comingSoonMsgBox()" />
+	&nbsp;&nbsp;
+	
+	<!-- 
+	<a href="https://play.google.com/store/apps/details?id=com.MathUnderground.MathBricks">
+		<img src="GooglePlay513x170.png" width=121 height=40 onclick="comingSoonMsgBox()" />
+	</a>
+	-->
+	<img src="GooglePlay513x170.png" width=121 height=40 onclick="comingSoonMsgBox()" />
+</td>
+<td style="text-align: center; padding: 10;">
+</td>
+</tr>
+<td widht="100%" style="text-align: center; spacing: 10px;" valign="middle" align="center">
+</td>
+</tr>
+</table>
+<iframe width="640" height="465" src="http://www.youtube.com/embed/VCIX43Z4ORY?rel=0&vq=hd720" frameborder="0" allowfullscreen>
+</iframe>
+
+<br height="30pt" />
+
+</body>
+</html>

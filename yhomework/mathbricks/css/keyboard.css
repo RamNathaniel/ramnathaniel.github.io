@@ -1,0 +1,112 @@
+.inside {
+	display: table-cell; 
+	vertical-align: middle; 
+	text-align: center; 
+}
+.kbNum {
+	font-family: 'Short Stack', cursive; font-size: 15pt;
+	color: white;
+	background-image: url('../kb/kb-blue-button.png');
+	background-size: contain;
+	float: left;
+	width: 62pt;
+	height: 52pt;
+	display: table; 
+	margin: 6pt;
+}
+.kbNumDis {
+	font-family: 'Short Stack', cursive; font-size: 15pt;
+	color: white;
+	background-image: url('../kb/kb-blue-button-dis.png');
+	background-size: contain;
+	float: left;
+	width: 62pt;
+	height: 52pt;
+	display: table; 
+	margin: 6pt;	
+}
+.kbNum:active {
+	background-image: url('../kb/kb-blue-button-sel.png');
+}
+.kbOp {
+	font-family: 'Short Stack', cursive; font-size: 15pt;
+	color: white;
+	background-image: url('../kb/kb-black-button.png');
+	background-repeat: no-repeat;
+	background-size: contain;
+	float: left;
+	width: 62pt;
+	height: 53pt;
+	display: table;
+	margin: 6pt;
+}
+.kbOp:active {
+	background-image: url('../kb/kb-black-button-sel.png');
+}
+.kbVar {
+	font-family: 'Short Stack', cursive; font-size: 15pt;
+	color: white;
+	background-image: url('../kb/kb-big-black-button.png');
+	background-repeat: no-repeat;
+	background-size: contain;
+	float: left;
+	width: 134pt;
+	height: 53pt;
+	display: table;
+	margin: 5pt;
+}
+.kbVar:active {
+	background-image: url('../kb/kb-big-black-button-sel.png');
+}
+.kbZero {
+	font-family: 'Short Stack', cursive; font-size: 15pt;
+	color: white;
+	background-image: url('../kb/kb-big-blue-button.png');
+	background-size: contain;
+	float: left;
+	width: 134pt;
+	height: 53pt;
+	display: table;
+	margin: 6pt; 
+	margin-left: 7pt;
+	margin-right: 7pt;
+}
+.kbZero:active {
+	background-image: url('../kb/kb-big-blue-button-sel.png');
+}
+.kbBack {
+	font-family: 'Short Stack', cursive; font-size: 15pt;
+	color: white;
+	background-image: url('../kb/kb-big-red-button.png');
+	background-repeat: no-repeat;
+	background-size: contain;
+	float: left;
+	width: 134pt;
+	height: 53pt;
+	display: table;
+	margin: 5pt;
+}
+.kbBack:active {
+	background-image: url('../kb/kb-big-red-button-sel.png');
+}
+input {
+	font-family: 'Short Stack', cursive; font-size: 15px;
+}
+body {
+	text-align: center; 
+	/* background-image: url('SplashScreen2.jpg'); */
+	color: black; font-family: 'Short Stack', cursive; font-size: 15px; 
+	/* background-repeat: no-repeat;
+	background-color: white; 
+	background-position: center center;*/
+}
+.container{
+    float: left;
+   	left: 50%;
+   	position: relative;
+}
+.center_div{
+	position: relative;
+	left: -50%;
+	float: left;
+}
